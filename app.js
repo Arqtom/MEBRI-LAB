@@ -143,14 +143,13 @@ document.addEventListener("DOMContentLoaded", iniciar);
 
 function iniciar(){
 
-crearFormulario();
+    crearFormulario();
 
-document
-.getElementById("calculateButton")
-.addEventListener(
-"click",
-calcularMEBRI
-);
+    document
+        .getElementById("calculateButton")
+        .addEventListener("click",calcularMEBRI);
+
+    iniciarControlAlcance();
 
 }
 
@@ -281,9 +280,9 @@ function obtenerDatosFormulario(){
 
         fecha:document.getElementById("date").value,
 
-        modo:document.getElementById("evaluationMode").value,
+        modo:document.getElementById("modoEvaluacion").value,
 
-        nivel:document.getElementById("level").value,
+        nivel:document.getElementById("nivel").value,
 
         sector:document.getElementById("sector").value
 
@@ -743,5 +742,47 @@ function calcularFenotipo(propiedades){
         distancia:menor
 
     };
+
+}
+/*=========================================
+CONTROL DEL ALCANCE DE EVALUACIÓN
+=========================================*/
+
+function iniciarControlAlcance(){
+
+    const modo = document.getElementById("modoEvaluacion");
+    const nivel = document.getElementById("nivel");
+    const sector = document.getElementById("sector");
+
+    if(!modo || !nivel || !sector) return;
+
+    function actualizarAlcance(){
+
+        switch(modo.value){
+
+            case "nivel":
+                nivel.disabled = false;
+                sector.disabled = true;
+                sector.selectedIndex = 0;
+                break;
+
+            case "sector":
+                nivel.disabled = true;
+                nivel.selectedIndex = 0;
+                sector.disabled = false;
+                break;
+
+            case "interseccion":
+                nivel.disabled = false;
+                sector.disabled = false;
+                break;
+
+        }
+
+    }
+
+    modo.addEventListener("change",actualizarAlcance);
+
+    actualizarAlcance();
 
 }
