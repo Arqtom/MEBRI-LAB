@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>MEBRI Lite</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+
+        <h1>MEBRI <span>Lite</span></h1>
+
+        <p>Matriz de Evaluación Biomimética de la Resiliencia Institucional</p>
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+    <!-- ===================================================== -->
+
+    <!-- DATOS GENERALES -->
+
+    <!-- ===================================================== -->
+
+    <section class="card">
+
+        <h2>Información General</h2>
+
+        <div class="grid-2">
+
+            <div>
+
+                <label>Sistema evaluado</label>
+
+                <input
+                    id="systemName"
+                    type="text"
+                    placeholder="Ej. SNGRD Colombia">
+
+            </div>
+
+            <div>
+
+                <label>País</label>
+
+                <input
+                    id="country"
+                    type="text"
+                    placeholder="Colombia">
+
+            </div>
+
+            <div>
+
+                <label>Evaluador</label>
+
+                <input
+                    id="evaluator"
+                    type="text">
+
+            </div>
+
+            <div>
+
+                <label>Fecha</label>
+
+                <input
+                    id="date"
+                    type="date">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ===================================================== -->
+
+    <!-- TIPO DE EVALUACIÓN -->
+
+    <!-- ===================================================== -->
+
+    <section class="card">
+
+        <h2>Unidad de análisis</h2>
+
+        <div class="grid-3">
+
+            <div>
+
+                <label>Modo de evaluación</label>
+
+                <select id="evaluationMode">
+
+                    <option value="nivel">
+                        Gobernanza Multinivel
+                    </option>
+
+                    <option value="sector">
+                        Gobernanza Sectorial
+                    </option>
+
+                    <option value="interseccion">
+                        Intersección Nivel × Sector
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div>
+
+                <label>Nivel</label>
+
+                <select id="level">
+
+                    <option>Global</option>
+                    <option>Regional</option>
+                    <option>Nacional</option>
+                    <option>Departamental</option>
+                    <option selected>Municipal</option>
+
+                </select>
+
+            </div>
+
+            <div>
+
+                <label>Sector</label>
+
+                <select id="sector">
+
+                    <option selected>Salud</option>
+                    <option>Ambiente</option>
+                    <option>Vivienda</option>
+                    <option>Transporte</option>
+                    <option>Educación</option>
+                    <option>Agricultura</option>
+                    <option>Energía</option>
+                    <option>Agua y saneamiento</option>
+                    <option>Planeación</option>
+                    <option>Sector privado</option>
+                    <option>Infraestructura crítica</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ===================================================== -->
+
+    <!-- PROPIEDADES -->
+
+    <!-- ===================================================== -->
+
+    <section class="card">
+
+        <h2>
+
+            Evaluación Biomimética
+
+        </h2>
+
+        <p class="intro">
+
+            Asigne un puntaje entre
+
+            <strong>1 (Muy Bajo)</strong>
+
+            y
+
+            <strong>5 (Muy Alto)</strong>
+
+            para cada propiedad.
+
+        </p>
+
+        <div id="propertiesContainer">
+
+            <!-- app.js generará aquí las 9 propiedades -->
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ===================================================== -->
+
+    <!-- BOTÓN -->
+
+    <!-- ===================================================== -->
+
+    <section class="center">
+
+        <button
+            id="calculateButton">
+
+            Calcular MEBRI
+
+        </button>
+
+    </section>
+
+
+
+    <!-- ===================================================== -->
+
+    <!-- RESULTADOS -->
+
+    <!-- ===================================================== -->
+
+    <section
+        id="resultsSection"
+        class="card">
+
+        <h2>
+
+            Resultados
+
+        </h2>
+
+        <div
+            id="resultsContainer">
+
+            <div class="waiting">
+
+                Complete la evaluación y presione
+
+                <strong>
+
+                    Calcular MEBRI
+
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+
+<footer>
+
+    MEBRI Lite · Versión 1.0
+
+</footer>
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
