@@ -470,3 +470,46 @@ font-size:44px;
 }
 
 }
+/*=========================================
+CRITERIOS OBSERVABLES
+=========================================*/
+
+.criteria{
+
+    margin-top:15px;
+
+    margin-bottom:15px;
+
+}
+
+.criterio{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin:8px 0;
+
+    cursor:pointer;
+
+}
+
+.criterio input{
+
+    width:18px;
+
+    height:18px;
+
+    cursor:pointer;
+
+}
+
+.criteria strong{
+
+    display:block;
+
+    margin-bottom:10px;
+
+}
