@@ -12,6 +12,17 @@
 
     <link rel="stylesheet" href="styles.css">
 
+
+<style id="MEBRI_PRINT_STYLES">
+@media print {
+    #generarResumenMEBRI,
+    #botonResumenMEBRI,
+    button {
+        display:none !important;
+    }
+}
+</style>
+
 </head>
 
 <body>
@@ -377,7 +388,172 @@
     </div>
 
 
+
+    <div id="unidadAControl" style="
+        margin-top:20px;
+        padding:16px;
+        border:1px solid #d8e1e5;
+        border-radius:10px;
+        background:#f8fafb;
+    ">
+
+        <h3 style="margin-top:0;">Unidad A</h3>
+
+        <p id="unidadASeleccionada" style="margin:8px 0;">
+            Seleccione la Unidad A y luego inicie su evaluación.
+        </p>
+
+        <button
+            type="button"
+            id="iniciarEvaluacionA"
+            style="
+                padding:10px 16px;
+                border:0;
+                border-radius:8px;
+                cursor:pointer;
+            "
+        >
+            Iniciar evaluación A
+        </button>
+
+        <div
+            id="estadoEvaluacionA"
+            style="margin-top:12px;"
+        ></div>
+
+
+    <div id="unidadBControl" style="
+        margin-top:20px;
+        padding:16px;
+        border:1px solid #d8e1e5;
+        border-radius:10px;
+        background:#f8fafb;
+        display:none;
+    ">
+
+        <h3 style="margin-top:0;">Unidad B</h3>
+
+        <p id="unidadBSeleccionada" style="margin:8px 0;">
+            Complete primero la evaluación de la Unidad A.
+        </p>
+
+        <button
+            type="button"
+            id="iniciarEvaluacionB"
+            style="
+                padding:10px 16px;
+                border:0;
+                border-radius:8px;
+                cursor:pointer;
+            "
+            disabled
+        >
+            Iniciar evaluación B
+        </button>
+
+        <div
+            id="estadoEvaluacionB"
+            style="margin-top:12px;"
+        ></div>
+
+    </div>
+
+
+    <div id="resultadoComparacion" style="
+        display:none;
+        margin-top:24px;
+        padding:18px;
+        border:1px solid #d8e1e5;
+        border-radius:10px;
+        background:#ffffff;
+    ">
+        <h3>Comparación sistémica</h3>
+
+        <div id="resumenComparacion"></div>
+
+        <div style="overflow-x:auto; margin-top:16px;">
+            <table id="tablaComparacion" style="width:100%; border-collapse:collapse;">
+                <thead>
+                    <tr>
+                        <th style="text-align:left; padding:8px;">Propiedad</th>
+                        <th style="padding:8px;">Unidad A</th>
+                        <th style="padding:8px;">Unidad B</th>
+                        <th style="padding:8px;">Brecha A - B</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+
+    
+    
+    
+    <div id="botonResumenMEBRI" style="
+        display:none;
+        margin-top:18px;
+    ">
+        <button type="button"
+                id="generarResumenMEBRI"
+                style="
+                    padding:11px 18px;
+                    border:0;
+                    border-radius:8px;
+                    cursor:pointer;
+                    font-weight:600;
+                ">
+            Generar resumen / Imprimir PDF
+        </button>
+        <small style="display:block; margin-top:6px;">
+            Se abrirá un informe listo para imprimir o guardar como PDF.
+        </small>
+    </div>
+
+<div id="radarIndividual" style="
+        display:none;
+        margin-top:24px;
+        padding:18px;
+        border:1px solid #d8e1e5;
+        border-radius:10px;
+        background:#ffffff;
+    ">
+        <h3>Perfil biomimético MEBRI</h3>
+        <p style="margin-top:0;">
+            Representación gráfica de las nueve propiedades evaluadas.
+        </p>
+        <div style="width:100%; max-width:760px; margin:0 auto;">
+            <canvas id="radarIndividualCanvas"
+                    width="760"
+                    height="620"
+                    style="width:100%; height:auto; display:block;">
+            </canvas>
+        </div>
+    </div>
+
+<div id="radarComparacion" style="
+        display:none;
+        margin-top:24px;
+        padding:18px;
+        border:1px solid #d8e1e5;
+        border-radius:10px;
+        background:#ffffff;
+    ">
+        <h3>Perfil comparativo MEBRI</h3>
+        <p style="margin-top:0;">
+            Comparación de las nueve propiedades entre las dos unidades evaluadas.
+        </p>
+        <div style="width:100%; max-width:760px; margin:0 auto;">
+            <canvas id="radarCanvas"
+                    width="760"
+                    height="620"
+                    style="width:100%; height:auto; display:block;">
+            </canvas>
+        </div>
+    </div>
+
     <div id="comparacionNiveles" style="display:none;">
+
+
 
         <label>Nivel A</label>
 
@@ -561,7 +737,7 @@
 
 </footer>
 
-<script src="app_v06.js"></script>
+<script src="app_v13.js"></script>
 
 </body>
 
