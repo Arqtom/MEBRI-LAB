@@ -816,6 +816,13 @@ function iniciarControlAlcance(){
                 nivel.disabled = false;
                 sector.disabled = false;
                 break;
+          
+            case "comparativo":
+    nivel.disabled = true;
+    sector.disabled = true;
+    nivel.selectedIndex = 0;
+    sector.selectedIndex = 0;
+    break;
 
         }
 
