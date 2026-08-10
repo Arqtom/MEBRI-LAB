@@ -784,16 +784,15 @@ function calcularFenotipo(propiedades){
     };
 
 }
-/*=====================================================
+/*=========================================
 CONTROL DEL ALCANCE DE EVALUACIÓN
-=====================================================*/
+=========================================*/
 
 function iniciarControlAlcance(){
 
     const modo = document.getElementById("modoEvaluacion");
     const nivel = document.getElementById("nivel");
     const sector = document.getElementById("sector");
-
     const comparacionContainer =
         document.getElementById("comparacionContainer");
 
@@ -844,7 +843,7 @@ function iniciarControlAlcance(){
         }
 
 
-        /* Mostrar / ocultar módulo comparativo */
+        /* Mostrar módulo de comparación */
 
         if(comparacionContainer){
 
@@ -865,92 +864,5 @@ function iniciarControlAlcance(){
 
 
     actualizarAlcance();
-
-}
-/*=====================================================
-CREAR CRITERIOS OBSERVABLES
-=====================================================*/
-
-function crearCriterios(clave){
-
-    if(!CRITERIOS[clave]) return "";
-
-    let html = "<div class='criterios'>";
-
-    html += "<h4>Criterios observables</h4>";
-
-    CRITERIOS[clave].forEach(texto=>{
-
-        html += `
-        <label class="criterio">
-            <input type="checkbox">
-            ${texto}
-        </label>
-        `;
-
-    });
-
-    html += `
-        <label style="margin-top:15px;display:block;">
-            Observaciones
-        </label>
-
-        <textarea
-            rows="3"
-            placeholder="Escriba aquí las observaciones del evaluador..."
-        ></textarea>
-    `;
-
-    html += "</div>";
-
-    return html;
-
-}
-/*=====================================================
-ACTUALIZAR PUNTAJE DESDE LOS CRITERIOS
-=====================================================*/
-
-function iniciarCriterios(){
-
-    const checks=document.querySelectorAll(".criterioCheck");
-
-    checks.forEach(check=>{
-
-        check.addEventListener("change",()=>{
-
-            const propiedad=check.dataset.property;
-
-            const grupo=document.querySelectorAll(
-                `.criterioCheck[data-property="${propiedad}"]`
-            );
-
-            let marcados=0;
-
-            grupo.forEach(c=>{
-
-                if(c.checked) marcados++;
-
-            });
-
-            let puntaje=1;
-
-            if(marcados==1) puntaje=2;
-
-            if(marcados>=2 && marcados<=3) puntaje=3;
-
-            if(marcados==4) puntaje=4;
-
-            if(marcados==5) puntaje=5;
-
-            document.getElementById(
-                `score_${propiedad}`
-            ).value=puntaje;
-
-        });
-
-    });
-
-}
-    actualizarComparacion();
 
 }
