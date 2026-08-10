@@ -586,25 +586,43 @@ ${resultado.fenotipo.distancia.toFixed(2)}
 
             </div>
 
-            <div>
+            ${resultado.sistema.modo === "nivel" ? `
+<div>
+    <strong>Nivel</strong>
 
-                <strong>Nivel</strong>
+    <br>
 
-                <br>
+    ${resultado.sistema.nivel}
+</div>
+` : ""}
 
-                ${resultado.sistema.nivel}
+${resultado.sistema.modo === "sector" ? `
+<div>
+    <strong>Sector</strong>
 
-            </div>
+    <br>
 
-            <div>
+    ${resultado.sistema.sector}
+</div>
+` : ""}
 
-                <strong>Sector</strong>
+${resultado.sistema.modo === "interseccion" ? `
+<div>
+    <strong>Nivel</strong>
 
-                <br>
+    <br>
 
-                ${resultado.sistema.sector}
+    ${resultado.sistema.nivel}
+</div>
 
-            </div>
+<div>
+    <strong>Sector</strong>
+
+    <br>
+
+    ${resultado.sistema.sector}
+</div>
+` : ""}
 
         </div>
 
