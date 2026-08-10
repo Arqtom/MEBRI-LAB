@@ -784,15 +784,18 @@ function calcularFenotipo(propiedades){
     };
 
 }
-/*=========================================
+/*=====================================================
 CONTROL DEL ALCANCE DE EVALUACIÓN
-=========================================*/
+=====================================================*/
 
 function iniciarControlAlcance(){
 
     const modo = document.getElementById("modoEvaluacion");
     const nivel = document.getElementById("nivel");
     const sector = document.getElementById("sector");
+
+    const comparacionContainer =
+        document.getElementById("comparacionContainer");
 
     if(!modo || !nivel || !sector) return;
 
@@ -801,30 +804,67 @@ function iniciarControlAlcance(){
         switch(modo.value){
 
             case "nivel":
+
                 nivel.disabled = false;
+
                 sector.disabled = true;
                 sector.selectedIndex = 0;
+
                 break;
+
 
             case "sector":
+
                 nivel.disabled = true;
                 nivel.selectedIndex = 0;
+
                 sector.disabled = false;
+
                 break;
+
 
             case "interseccion":
+
                 nivel.disabled = false;
                 sector.disabled = false;
+
                 break;
-          
+
+
             case "comparativo":
-    nivel.disabled = true;
-    sector.disabled = true;
-    nivel.selectedIndex = 0;
-    sector.selectedIndex = 0;
-    break;
+
+                nivel.disabled = true;
+                sector.disabled = true;
+
+                nivel.selectedIndex = 0;
+                sector.selectedIndex = 0;
+
+                break;
 
         }
+
+
+        /* Mostrar / ocultar módulo comparativo */
+
+        if(comparacionContainer){
+
+            comparacionContainer.style.display =
+                modo.value === "comparativo"
+                    ? "block"
+                    : "none";
+
+        }
+
+    }
+
+
+    modo.addEventListener(
+        "change",
+        actualizarAlcance
+    );
+
+
+    actualizarAlcance();
 
 }
 /*=====================================================
