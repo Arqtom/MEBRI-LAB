@@ -151,6 +151,7 @@ function iniciar(){
         .addEventListener("click",calcularMEBRI);
 
     iniciarControlAlcance();
+ iniciarComparacion();
 
 }
 
@@ -825,7 +826,13 @@ function iniciarControlAlcance(){
     break;
 
         }
+const comparacionContainer =
+    document.getElementById("comparacionContainer");
 
+if(comparacionContainer){
+
+    comparacionContainer.style.display =
+        modo === "comparativo" ? "block" : "none";
     }
 
     modo.addEventListener("change",actualizarAlcance);
@@ -915,5 +922,46 @@ function iniciarCriterios(){
         });
 
     });
+
+}
+ /*=====================================================
+CONTROL DE COMPARACIÓN SISTÉMICA
+=====================================================*/
+
+function iniciarComparacion(){
+
+    const tipo =
+        document.getElementById("tipoComparacion");
+
+    const sectores =
+        document.getElementById("comparacionSectores");
+
+    const niveles =
+        document.getElementById("comparacionNiveles");
+
+    if(!tipo || !sectores || !niveles) return;
+
+    function actualizarComparacion(){
+
+        if(tipo.value === "sector"){
+
+            sectores.style.display = "block";
+            niveles.style.display = "none";
+
+        }else{
+
+            sectores.style.display = "none";
+            niveles.style.display = "block";
+
+        }
+
+    }
+
+    tipo.addEventListener(
+        "change",
+        actualizarComparacion
+    );
+
+    actualizarComparacion();
 
 }
